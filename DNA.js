@@ -36,7 +36,7 @@ class DNA {
         return this.genes.join("");
     }
 
-    // Fitness function (returns floating point % of "correct" characters)
+    // * Fitness function (returns floating point % of "correct" characters)
     calcFitness(target) {
         let score = 0;
         for (let i = 0; i < this.genes.length; i++) {
@@ -45,6 +45,9 @@ class DNA {
             }
         }
         this.fitness = score / target.length;
+        // * enhanced fitness function to power 2 fitness
+        // * or power of 4
+        this.fitness = pow(this.fitness, 4);
     }
 
     // Crossover
